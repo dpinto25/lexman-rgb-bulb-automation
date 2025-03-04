@@ -1,3 +1,5 @@
+import subprocess
+
 on_command = "sudo gatttool -b F8:44:77:05:01:36 --char-write-req -a 0x1d -n 0000100103010000"
 off_command = "sudo gatttool -b F8:44:77:05:01:36 --char-write-req -a 0x1d -n 0000100103000000"
 color_command_format = "sudo gatttool -b F8:44:77:05:01:36 --char-write-req -a 0x1d -n {color}"
@@ -6,10 +8,10 @@ intensity_command_format = "sudo gatttool -b F8:44:77:05:01:36 --char-write-req 
 colors = {
     '1': '000012010400990000',  # White
     '2': '0000120104011d0000',  # Yellow
-    '3': '0001307045efe0000',  # Red
-    '4': '00013070400fe0000',  # Green
-    '5': '000130704e7a550000',  # Purple
-    '6': '0001307048b8650000',  # Light Blue
+    '3': '000013070400fe0000',  # Red
+    '4': '00001307045efe0000',  # Green
+    '5': '0000130704e7a50000',  # Purple
+    '6': '00001307048b860000',  # Light Blue
     # The LEXMAN RGB GU10 BULBS USE A PRESET COLOR TABLE. IT IS NOT POSSIBLE TO INPUT JUST ANY RGB VALUE.
 }
 
@@ -33,7 +35,9 @@ def show_color_menu():
     print("2. Yellow")
     print("3. Red")
     print("4. Green")
-    print("5. Blue")
+    print("5. Purple")
+    print("6. Blue")
+  
 
 def change_color():
     show_color_menu()
